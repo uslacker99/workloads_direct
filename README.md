@@ -1,5 +1,3 @@
-markdown
-
 # Illumio Workload Rules Extractor
 
 This Python script connects to an Illumio Policy Compute Engine (PCE) to fetch rulesets, identifies rules that directly reference workloads in the `consumers` field, and exports the results to a CSV file. It is useful for auditing or analyzing Illumio security policies to find rules with specific workload references, such as rule 3 in the provided example ruleset.
