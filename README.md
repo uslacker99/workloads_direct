@@ -42,13 +42,13 @@ This Python script connects to an Illumio Policy Compute Engine (PCE) to fetch r
     bash
 
     pip install --upgrade illumio
-
+```
 Configuration
 
     Create a .env File:
         Create a .env file in the script’s directory with the following content:
         env
-
+```
         PCE_HOST=https://pce.shocknetwork.com
         PCE_PORT=8443
         PCE_ORG_ID=1
@@ -60,7 +60,7 @@ Configuration
         PCE_ASYNC_POLL_INTERVAL=5
         PCE_MAX_RETRIES=2
         PCE_MAX_POLL_ATTEMPTS=60
-
+```
         Replace values with your PCE details:
             PCE_HOST: PCE hostname (e.g., https://pce.shocknetwork.com).
             PCE_PORT: PCE port (e.g., 8443 or 443).
@@ -77,32 +77,32 @@ Configuration
         Save it (e.g., pce_cert.pem) in the script’s directory.
         Add to .env:
         env
-
+```
         REQUESTS_CA_BUNDLE=/path/to/pce_cert.pem
-
+```
         Or set the environment variable:
         bash
-
+```
         export REQUESTS_CA_BUNDLE=/path/to/pce_cert.pem
-
+```
     Verify PCE Access:
         Test connectivity and credentials:
-        bash
+```        bash
 
         curl -u "<api_key>:<api_secret>" -H "Prefer: respond-async" https://pce.shocknetwork.com:8443/api/v2/orgs/1/sec_policy/draft/rule_sets
-
+```
         If SSL errors occur, use -k temporarily (insecure):
         bash
-
+```
         curl -k -u "<api_key>:<api_secret>" -H "Prefer: respond-async" https://pce.shocknetwork.com:8443/api/v2/orgs/1/sec_policy/draft/rule_sets
-
+```
         Expected response: 202 Accepted with a Location header (async) or 200 OK (synchronous). If it fails, check .env settings or network connectivity.
 
 Usage
 
     Run the Script:
         Activate the virtual environment:
-        bash
+```        bash
 
         source venvs/bin/activate
 
@@ -110,7 +110,7 @@ Usage
         bash
 
         python3 workloads_directly_in_rules.py
-
+```
     Expected Output:
         Console:
 
